@@ -1,29 +1,5 @@
 # pokedex-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+![image](https://github.com/Sikkepit/Pokedex-vue/assets/148398668/65c7bef3-a25b-4d93-94d1-0bba49417d8c)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+https://dennishemstra.com/pokedex-vue/
