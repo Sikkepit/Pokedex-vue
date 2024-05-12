@@ -55,7 +55,7 @@ const handleIsAlphabetical = (isAlphabetical) => {
 
 <template>
   <div class="container">
-    <div>
+    <div class="left-col">
       <SearchBar @search-query="handleSearchQuery" @is-alphabetical="handleIsAlphabetical" />
       <DetailView :pokemon="activePokemon"/>
     </div>
@@ -71,10 +71,18 @@ const handleIsAlphabetical = (isAlphabetical) => {
   grid-template-columns: 5fr 7fr;
   gap:2rem;
 }
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+}
 
-@media (max-width:900px) {
+@media (max-width:850px) {
   .container {
   grid-template-columns: 1fr;
+  }
+  .left-col {
+    flex-direction: column-reverse;
   }
 }
 </style>

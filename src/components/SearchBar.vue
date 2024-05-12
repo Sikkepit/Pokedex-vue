@@ -25,7 +25,6 @@ function clearInput() {
 </template>
 <style scoped>
 section {
-    margin-bottom:2rem;
     border-radius: 15px;
     background-color: cornflowerblue;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
