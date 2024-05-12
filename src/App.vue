@@ -7,6 +7,7 @@ import DetailView from './components/DetailView.vue';
 const pokeData = ref([]);
 const searchQuery = ref('');
 const activePokemon = ref('bulbasaur');
+const sortAlphabetical = ref(false);
 
 const getPokeData = async() => {
     try {
@@ -45,17 +46,21 @@ const showDetails = (pokemonName) => {
   activePokemon.value = pokemonName;
 }
 
+const handleIsAlphabetical = (isAlphabetical) => {
+  sortAlphabetical.value = isAlphabetical;
+}
+
 
 </script>
 
 <template>
   <div class="container">
     <div>
-      <SearchBar @search-query="handleSearchQuery" />
+      <SearchBar @search-query="handleSearchQuery" @is-alphabetical="handleIsAlphabetical" />
       <DetailView :pokemon="activePokemon"/>
     </div>
     <div>
-      <PokeList :pokeData="pokeData" :searchQuery="searchQuery" @details-viewed="showDetails"/>
+      <PokeList :pokeData="pokeData" :searchQuery="searchQuery" :isAlphabetical ="sortAlphabetical" @details-viewed="showDetails"/>
     </div>
   </div>
 </template>
@@ -64,7 +69,7 @@ const showDetails = (pokemonName) => {
 .container {
   display: grid;
   grid-template-columns: 5fr 7fr;
-  gap:3rem;
+  gap:2rem;
 }
 
 @media (max-width:900px) {

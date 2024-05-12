@@ -10,16 +10,24 @@ const props = defineProps({
     searchQuery: {
       type: String,
       required: true
+    },
+    isAlphabetical: {
+      type: Boolean,
+      required: true
     }
 })
 
 const emit = defineEmits(['details-viewed']);
 
-
-
 const filteredPokemon = computed(() => {
+  if(props.isAlphabetical) {
   return props.pokeData.filter(pokemon => pokemon.name.includes(props.searchQuery) || 
+        formatId(getIdFromUrl(pokemon.url)).includes(props.searchQuery)).sort((a, b) => a.name.localeCompare(b.name));
+  }
+  else {
+    return props.pokeData.filter(pokemon => pokemon.name.includes(props.searchQuery) || 
         formatId(getIdFromUrl(pokemon.url)).includes(props.searchQuery))
+  }
 })
 
 function getIdFromUrl(url) {
