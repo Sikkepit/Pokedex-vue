@@ -10,11 +10,16 @@ function toggleSorting() {
     buttonText.value = isAlphabetical.value ? 'Sort by ID' : 'Sort by name'
     emit('is-alphabetical', isAlphabetical.value)
 }
+function clearInput() {
+    inputValue.value="";
+    emit('search-query', '')
+}
 
 </script>
 <template>
     <section>
         <input type="text" name="search-bar" placeholder="Search Pokedex..." v-model="inputValue" @input="emit('search-query', inputValue)">
+        <button class="clear-button" @click="clearInput">Clear</button>
         <button @click="toggleSorting">{{ buttonText }}</button>
     </section>
 </template>
@@ -31,9 +36,11 @@ label {
 }
 input {
     font-family: inherit;
-    border: 1px solid cornflowerblue;
+    border-block: 1px solid cornflowerblue;
+    border-inline-start: 1px solid cornflowerblue;
+    border-inline-end: 0;
     padding: 1rem;
-    border-radius: 15px;
+    border-radius: 15px 0px 0px 15px;
     width: 100%;
 }
 input:focus {
@@ -45,6 +52,13 @@ button {
     border:0;
     color:white;
     cursor: pointer;
+}
+.clear-button {
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+    border-block: 1px solid cornflowerblue;
+    border-inline-end: 1px solid cornflowerblue;
+    color: cornflowerblue;
 }
 
 </style>

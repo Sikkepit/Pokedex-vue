@@ -49,7 +49,7 @@ const viewDetails = (pokemonName) => {
 
 <template>
   <section class="list">
-    <div v-for="pokemon in filteredPokemon" :key="pokemon.url" class="item" @click="viewDetails(pokemon.name)">
+    <button v-for="pokemon in filteredPokemon" :key="pokemon.url" class="item" @click="viewDetails(pokemon.name)">
       <div class="pokemon-img">
         <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getIdFromUrl(pokemon.url)}.png`" :alt="'Picture of ' + useCapitalize(pokemon.name)">
       </div>
@@ -57,7 +57,7 @@ const viewDetails = (pokemonName) => {
         <span class="pokemon-id">No. {{ formatId(getIdFromUrl(pokemon.url)) }}</span><br>
         <span class="pokemon-name">{{ useCapitalize(pokemon.name) }}</span>
       </div>
-    </div>
+    </button>
   </section>
 </template>
 
@@ -79,6 +79,7 @@ const viewDetails = (pokemonName) => {
   }
 
   .item {
+    all:unset;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -92,6 +93,9 @@ const viewDetails = (pokemonName) => {
     scale: 1.05;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     cursor: pointer;
+  }
+  .item:focus {
+    outline: 3px solid cornflowerblue;
   }
   .pokemon-name {
     font-size: 18px;
