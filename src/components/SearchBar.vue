@@ -31,6 +31,9 @@ section {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
 }
+section:focus-within {
+    outline: 1px solid hotpink;
+}
 label {
     margin-right:1rem;
 }
@@ -44,7 +47,7 @@ input {
     width: 100%;
 }
 input:focus {
-    outline: 2px solid hotpink;
+    outline: 1px solid hotpink;
 }
 button {
     background: transparent;
