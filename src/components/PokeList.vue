@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits, computed, ref, onMounted } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useCapitalize } from '@/composables/capitalize';
 
 const props = defineProps({
@@ -71,8 +71,8 @@ const viewDetails = (pokemonName) => {
     overflow-y: scroll;
     overflow-x: hidden;
     padding:1rem;
-    margin: -1rem;
     scroll-snap-type: y mandatory;
+    margin-top:0.1rem;
   }
 
   @media (min-width:800px) {
