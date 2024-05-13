@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits, computed, ref } from 'vue';
+import { defineProps, defineEmits, computed, ref, onMounted } from 'vue';
 import { useCapitalize } from '@/composables/capitalize';
 
 const props = defineProps({
@@ -16,6 +16,8 @@ const props = defineProps({
       required: true
     }
 })
+
+
 
 const emit = defineEmits(['details-viewed']);
 
@@ -70,11 +72,12 @@ const viewDetails = (pokemonName) => {
     overflow-x: hidden;
     padding:1rem;
     margin: -1rem;
+    scroll-snap-type: y mandatory;
   }
 
-  @media (min-width:640px) {
+  @media (min-width:800px) {
     .list {
-     max-height: 100vh;
+     max-height: 1140px;
     }
   }
 
@@ -88,6 +91,7 @@ const viewDetails = (pokemonName) => {
     overflow: hidden;
     transition: scale 250ms;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    scroll-snap-align: start;
   }
   .item:hover {
     scale: 1.05;

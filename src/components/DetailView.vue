@@ -86,6 +86,7 @@ function getWidth(rating) {
 }
 .pokemon-img {
     text-align: center;
+    height:400px;
 }
 h2 {
     margin: 0;

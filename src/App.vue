@@ -28,7 +28,6 @@ const getPokeData = async() => {
 
 onMounted(() => {
   const savedData = JSON.parse(localStorage.getItem('pokedata'));
-
   if(!savedData) {
     getPokeData();
   }
